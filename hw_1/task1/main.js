@@ -8,21 +8,21 @@
 let arr = ["Tom", "Steve", "Bill", "Rita", "Pete", "Ashley"];
 const list = document.getElementById('list');
 
-// Сигнатура map
-function map(list, fn){
-  arr = arr.sort()
-  createList(arr)
-  console.log(arr);
- }
-map(list, createList);
-
-function createList() {
-  for(let i = 0; i < arr.length; i++) {
-    let item = document.createElement('li');
-    item.classList.add('list-group-item');
-		item.textContent = arr[i];
-		list.appendChild(item);		
-  } 
+function createList(arr) {
+  arr.sort().map((element) => {
+    let li = document.createElement("li");
+    list.appendChild(li)
+    li.textContent += element;
+  }) 
 }
-// console.log(createList());
+console.log(list)
+
+function map(list, fn){
+  fn.forEach((element) => list.append(element));
+ }
+map(list, createList(arr));
+
+
+
+
 
