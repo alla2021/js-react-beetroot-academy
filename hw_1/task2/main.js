@@ -24,7 +24,7 @@ const ages = users.reduce((acc,item) => {
   !acc.includes(age) && acc.push(age)
   return acc
 },[])
-console.log(`arr age---->`, ages)
+// console.log(`arr age---->`, ages)
 
 ages.forEach(element => {
   let item = document.createElement('option');
@@ -32,8 +32,21 @@ ages.forEach(element => {
   item.textContent = element;
   usersSelect.appendChild(item);
 })
-console.log(`usersSelect---->`, usersSelect)
+// console.log(`usersSelect---->`, usersSelect)
+
+usersSelect.addEventListener('change', (event) => {
+  let fiterAge = users.filter((element) => element.age === usersSelect.value);
+  // console.log(fiterAge)
+  fiterAge.forEach((element) => {
+    let userName = document.createElement('p');
+    userName.textContent = element.name;
+    res.append(userName);
+  })
+})
 
 
 
-
+//  usersSelect.addEventListener('change', (event) => {
+  
+//   res.textContent = `You like ${name}`;
+//  } )

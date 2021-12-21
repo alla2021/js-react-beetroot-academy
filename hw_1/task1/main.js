@@ -11,7 +11,7 @@ const list = document.getElementById('list');
 function createList(arr) {
   arr.sort().map((element) => {
     let li = document.createElement("li");
-    list.appendChild(li)
+    list.appendChild(li);
     li.textContent += element;
   }) 
 }
