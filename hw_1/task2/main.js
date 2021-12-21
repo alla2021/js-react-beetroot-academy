@@ -35,6 +35,7 @@ ages.forEach(element => {
 // console.log(`usersSelect---->`, usersSelect)
 
 usersSelect.addEventListener('change', (event) => {
+  clean(res);
   let fiterAge = users.filter((element) => element.age === usersSelect.value);
   // console.log(fiterAge)
   fiterAge.forEach((element) => {
@@ -44,9 +45,8 @@ usersSelect.addEventListener('change', (event) => {
   })
 })
 
-
-
-//  usersSelect.addEventListener('change', (event) => {
-  
-//   res.textContent = `You like ${name}`;
-//  } )
+function clean(element){
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
