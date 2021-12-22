@@ -9,7 +9,7 @@ let arr = ["Tom", "Steve", "Bill", "Rita", "Pete", "Ashley"];
 const list = document.getElementById('list');
 
 function createList(arr) {
-  arr =arr.sort()
+  arr = arr.sort()
   const newArr = []
   for(let i in arr){
     newArr[i]=`<li class="list-group-item">${arr[i]}</li>`
@@ -18,13 +18,10 @@ function createList(arr) {
 // console.log(createList(arr))
 
 function map(list, fn){
-  fn.forEach((element) => {
-    list.innerHTML += element;
+  fn(arr).forEach((item) => {
+    list.innerHTML += item;
 });
- }
-map(list, createList(arr));
-
-
-
+}
+map(list, createList);
 
 
