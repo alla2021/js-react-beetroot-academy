@@ -9,16 +9,18 @@ let arr = ["Tom", "Steve", "Bill", "Rita", "Pete", "Ashley"];
 const list = document.getElementById('list');
 
 function createList(arr) {
-  arr.sort().map((element) => {
-    let li = document.createElement("li");
-    list.appendChild(li);
-    li.textContent += element;
-  }) 
+  arr =arr.sort()
+  const newArr = []
+  for(let i in arr){
+    newArr[i]=`<li class="list-group-item">${arr[i]}</li>`
+  } return newArr  
 }
-console.log(list)
+// console.log(createList(arr))
 
 function map(list, fn){
-  fn.forEach((element) => list.append(element));
+  fn.forEach((element) => {
+    list.innerHTML += element;
+});
  }
 map(list, createList(arr));
 
