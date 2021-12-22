@@ -9,19 +9,17 @@ let arr = ["Tom", "Steve", "Bill", "Rita", "Pete", "Ashley"];
 const list = document.getElementById('list');
 
 function createList(arr) {
-  arr = arr.sort()
-  const newArr = []
-  for(let i in arr){
-    newArr[i]=`<li class="list-group-item">${arr[i]}</li>`
-  } return newArr  
-}
-// console.log(createList(arr))
 
-function map(list, fn){
-  fn(arr).forEach((item) => {
-    list.innerHTML += item;
-});
 }
-map(list, createList);
+
+
+function map(arr, f) {
+  let result = [];
+  for (let el of arr) {
+      result.push(f(el));
+  } return result;
+} 
+// console.log(map([1, 2, 3], item => item * 2)); // Має вивести [2, 4, 6]
+// map(arr, createList);
 
 
