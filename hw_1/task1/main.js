@@ -7,6 +7,7 @@
 
 let arr = ["Tom", "Steve", "Bill", "Rita", "Pete", "Ashley"];
 const list = document.getElementById('list');
+arr.sort();
 
 function map(arr, f) {
   let result = [];
@@ -21,7 +22,6 @@ function createList(arr) {
   item.textContent = `${arr}`;
   return list;
 }
-// console.log(map([1, 2, 3], item => item * 2)); // Має вивести [2, 4, 6]
 map(arr, createList);
 
 
