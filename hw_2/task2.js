@@ -1,31 +1,17 @@
-/*
-Є 2 об'єкти - users, products
-У файлі home4.html є 2 елементи select (id="users-select", id="products-select")
-Завдання - написати загальну бізнес логіку, яка у вищевказаних елементах select
-буде виводити згруповані options
+// Завдання 2:
+// В елементі select вивести згруповані options. Потрібно зробити наступні кроки:
+// - з масиву об'єкта отримати масив властивостей, наприклад масив містить всі роки (вік)
+// - з масиву віку отримати масив їх унікальних значень
+// - сортування отриманого масиву
+// - створення масиву з елементами options
+// - вивід в select
 
-В елементі select id="users-select" - згруповані department користувачів
-В елементі select id="products-select" - згруповані title продуктів
+// Задачу реалізувати з використанням pipe або composition
 
-Тобто треба робити наступні кроки
-- з масиву об'єктів отримати масив властивостей,
-  наприклад масив, що містить всі віки
-- з масиву віку отримати масив їх унікальних значень
-- сортування отриманого масиву
-- створення масиву з елементами options
-- виведення у select
-
-Завдання реалізувати за допомогою pipe
-
-Клієнтський код повинен мати можливість перевизначати
-властивість об'єктів users, яке потрібно групувати
-         name, age або depratment
-та виводити в елемент select
-!!! При цьому бізнес-логіка не повинна змінюватись
-*/
-
-/*  =============== Data =============  */
-
+// Клієнтський код повинен мати можливість перевизначати 
+// властивість об'єктів users, яке потрібно групувати name,
+//  age або depratment і виводити в елемент select. 
+// При цьому бізнес-логіка не повинна змінюватися!
 let users = [
   { id: 1, name: "John", age: "20", department: "HR" },
   { id: 2, name: "Sasha", age: "30", department: "Marketing" },
@@ -47,31 +33,26 @@ const products = [
   { id: 4, title: "Panasonic", price: 40 },
 ];
 
-// prettier-ignore
 const curry = (fn) => (...args) => fn.bind(null, ...args)
-
-// prettier-ignore
-const pipe =  (...fns) =>  (x) =>  fns.reduce((v, f) => f(v), x);
+const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
 
 /*  Business logic */
-const getProp = () => {};
-const groupedItems = () => {};
-const sortBy = () => {};
-const getOpts = () => {};
+const getProp = curry((prop, arr) => {return arr.map(user => user[prop])});
+const groupedItems = arr => { return [... new Set(arr)]};
+const sortBy = arr => {return arr.sort()};
+const getOpts = arr => {return arr.map(item =>`<option>${item}</option>`)};
 
 /* =========== client code ===============  */
 const usersSelect = document.getElementById("users-select");
+const productsSelect = document.getElementById("products-select");
 
 //  Usage:
 // getProps може приймати department, age, name, price, title
-
-/*
 const userFn = pipe(getProp("department"), groupedItems, sortBy, getOpts);
-const productFn = pipe(getProp("price"), groupedItems, sortBy, getOpts);
+const productFn = pipe(getProp("title"), groupedItems, sortBy, getOpts);
 
 const usersOpts = userFn(users);
 const productsOpts = productFn(products);
 
 usersSelect.innerHTML = usersOpts.join("");
 productsSelect.innerHTML = productsOpts.join("");
- */
