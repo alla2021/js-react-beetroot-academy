@@ -77,7 +77,7 @@ class Book {
 //test
 const book1 = new Book('Harry Potter and the Philosophers Stone','fantasy',' J. K. Rowling.', false);
 const book2 = new Book('The Adventures of Sherlock Holmes ','detective','Arthur Conan Doyle', false);
-const book3 = new Book('harry potter2','fantasy',' J. K. Rowling.', false);
+const book3 = new Book('Harry Potter and the Chamber of Secrets','fantasy',' J. K. Rowling.', false);
 const book4 = new Book('The Return of Sherlock Holmes','detective','Arthur Conan Doyle', false);
 const book5 = new Book('Sherlock Holmes: The Red-Headed League','detective','Arthur Conan Doyle', false);
 const bookList = new Booklist();
