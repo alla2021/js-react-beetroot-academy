@@ -33,6 +33,7 @@ class Booklist {
   get booksRead() { //прочитаные
       return this.allBook.filter(book => book.isRead).length;
   }
+
   get booksNotRead() { //не прочитаные
       return this.allBook.filter(book => !book.isRead).length;
   }
@@ -65,11 +66,13 @@ class Book {
       this.isRead = isRead;
       this._dateRead;
   }
+
   read() {
       this.isRead = true;
       this._dateRead = new Date();
   }
-  set dateRead(date){
+
+  dateRead(date){
     new Date(date);
   }
 }
