@@ -27,7 +27,7 @@ class Booklist {
   }
 
   finishCurrentBook () {  
-      this.currentBook.read()
+      this.currentBook.read();
   }
   
   get booksRead() { //прочитаные
@@ -75,7 +75,7 @@ class Book {
 }
 
 //test
-const book1 = new Book('harry potter','harry potter','Harry Potter', false);
+const book1 = new Book('harry potter33','harry potter44','Harry Potter66', false);
 const book2 = new Book('sherlock holmes4','sherlock holmes4','sherlock holmes4', false);
 const book3 = new Book('harry potter2','harry potter2','Harry Potter2', false);
 const book4 = new Book('sherlock holmes1','sherlock holmes1','sherlock holmes1', false);

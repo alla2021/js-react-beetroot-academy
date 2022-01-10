@@ -33,7 +33,7 @@ const products = [
   { id: 4, title: "Panasonic", price: 40 },
 ];
 
-const curry = (fn) => (...args) => fn.bind(null, ...args)
+const curry = (fn) => (...args) => fn.bind(null, ...args);
 const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
 
 /*  Business logic */

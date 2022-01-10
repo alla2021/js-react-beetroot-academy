@@ -51,7 +51,7 @@ const arr = [11, 66, 33, 44, 22, 55, 2];
 function filter(arr, f) {
   let result = [];
   for (let el of arr) {
-    if(f(el) === true) {
+    if(f(el)) {
       result.push(f(el));
     }} return result;
 }
