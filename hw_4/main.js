@@ -27,7 +27,7 @@ function makeRequest() {
 function renderList(data) {
   const list = document.querySelector('#list');
   for (let item of data) {
-    list.insertAdjacentHTML('afterbegin', `<li class="item">Title: ${item.title}; <span class="author-link" data-user-id="${item.userId}"> Get author </span></li>`)
+    list.insertAdjacentHTML('afterbegin', `<li class="item">Title: ${item.title}; <span class="author-link" id="link" data-user-id="${item.userId}"> Get author </span></li>`)
   }
 }
 
@@ -44,6 +44,7 @@ function renderUser(data) {
 }
 
 function handleClick({ target }) {
+  if (target.classList != 'author-link') return;
   getUser(target.dataset.userId)
     .then(data => [...data, target])
     .then(renderUser);
