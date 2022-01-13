@@ -40,6 +40,15 @@ class List extends React.Component {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
   }
+
+  render(
+        <ul>
+          {users.map((item) => (
+            <UserCard key={item.firstName} {...item} />
+          )}
+        </ul>
+  ) 
+}
 }
 
 export default List;
