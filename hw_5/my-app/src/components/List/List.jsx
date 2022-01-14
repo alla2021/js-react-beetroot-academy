@@ -37,7 +37,7 @@ class List extends React.Component {
     return (
       <ul>
           {this.state.users.map((item) => (
-            <UserCard {...item} />
+            <UserCard key={item.id} {...item} />
           ))}
       </ul>
   )
