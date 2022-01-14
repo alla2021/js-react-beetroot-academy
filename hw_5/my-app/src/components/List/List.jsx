@@ -23,7 +23,10 @@ class List extends React.Component {
     this.state = {
       users: [],
     };
-    this.fetchUsers();
+
+}
+componentDidMount() {
+  this.fetchUsers()
 }
 
   fetchUsers() {
