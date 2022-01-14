@@ -48,10 +48,10 @@ componentDidMount() {
 }
 }
 
-List.propTypes = {
-  name: PropTypes.string,
-  username: PropTypes.string,
-  email: PropTypes.string
-};
+List.propTypes = {optionalUnion: PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired
+})};
 
 export default List;
