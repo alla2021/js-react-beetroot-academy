@@ -2,29 +2,18 @@ import React from 'react';
 
 class UserCard extends React.Component {
   render() {
-    const { firstName, lastName, email } = this.props;
-
+    const { name, username, email } = this.props;
     return (
       <li>
-        Name: {firstName}
+        Name: {name}
         <br />
-        Last Name: {lastName}
+        Username: {username}
         <br />
         Email: {email}
         <br />
       </li>
     );
   }
-}
-
-const UserList = ({users}) => {
-  return (
-    <ul>
-      {users.map((item) => (
-            <UserCard key={item.firstName} {...item} />
-          ))}
-    </ul>
-  )
 }
 
 class List extends React.Component {
@@ -39,15 +28,23 @@ class List extends React.Component {
   fetchUsers() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
+      .then((data) => console.log('data ----->', data))
+      .then((data) => this.setState({users: data}))
   }
 
-  render(
-        <ul>
+  render() {
+    // const { users } = this.props;
+    const { users } = this.state;
+    return (
+      <ul>
           {users.map((item) => (
-            <UserCard key={item.firstName} {...item} />
-          )}
-        </ul>
-  ) 
+            <UserCard {...item} />
+          ))}
+          {/* {users.map((name, username, email) => (
+            <li>Name: {name}; Username: {username}; Email: {email}</li>
+          ))} */}
+      </ul>
+  )
 }
 }
 
