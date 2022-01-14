@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class UserCard extends React.Component {
   render() {
@@ -23,8 +24,8 @@ class List extends React.Component {
     this.state = {
       users: [],
     };
-
 }
+
 componentDidMount() {
   this.fetchUsers()
 }
@@ -46,5 +47,11 @@ componentDidMount() {
   )
 }
 }
+
+List.propTypes = {
+  name: PropTypes.string,
+  username: PropTypes.string,
+  email: PropTypes.string
+};
 
 export default List;
