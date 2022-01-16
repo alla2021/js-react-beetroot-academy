@@ -36,7 +36,7 @@ const UserList = ({ users, click, posts }) => {
         </ul>
         <div>
           {posts.map((post) => (
-            <li key={post.id}>{post.body}</li>
+            <li key={post.id}>Title:{post.title}</li>
           ))}
         </div>
       </div>
