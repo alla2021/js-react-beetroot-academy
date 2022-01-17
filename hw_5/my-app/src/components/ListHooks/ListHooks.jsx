@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const UserList = ({ users, click, posts }) => {
   return(
@@ -56,5 +57,13 @@ const ListHooks = ({ title }) => {
     </>
   );
 };
+
+
+ListHooks.propTypes = {
+  optionalUnion: PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired
+})};
 
 export default ListHooks;
