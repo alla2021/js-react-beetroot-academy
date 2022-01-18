@@ -86,11 +86,11 @@ componentDidMount() {
 }
 }
 
-List.propTypes = {
+UserList.propTypes = {
   optionalUnion: PropTypes.shape({
-  name: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired
+  users: PropTypes.array.isRequired,
+  click: PropTypes.string.isRequired,
+  posts: PropTypes.array.isRequired
 })};
 
 export default List;

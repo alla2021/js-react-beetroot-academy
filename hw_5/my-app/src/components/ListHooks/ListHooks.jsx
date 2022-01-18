@@ -53,11 +53,17 @@ const ListHooks = ({ title }) => {
   );
 };
 
+
+UserList.propTypes = {
+  optionalUnion: PropTypes.shape({
+  users: PropTypes.array.isRequired,
+  click: PropTypes.string.isRequired,
+  posts: PropTypes.array.isRequired
+})};
+
 ListHooks.propTypes = {
   optionalUnion: PropTypes.shape({
-  name: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 })};
 
 export default ListHooks;

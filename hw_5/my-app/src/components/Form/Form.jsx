@@ -64,7 +64,7 @@ const Textarea = ({ textareaValue, setTextValue }) => {
 }
 
 
-const Form = (props) => {
+const Form = () => {
   const [textareaValue, setTextValue] = React.useState('');
   const [selectValue, setSelectValue] = React.useState('');
   const [inputValue, setInputValue] = React.useState('');
