@@ -28,11 +28,6 @@ const UserList = ({ users, click, posts }) => {
 }
 
 const ListHooks = ({ title }) => {
-  // const [data, setData] = useState({
-  //   posts: [],
-  //   users: [],
-  // });
-
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
 
@@ -57,7 +52,6 @@ const ListHooks = ({ title }) => {
     </>
   );
 };
-
 
 ListHooks.propTypes = {
   optionalUnion: PropTypes.shape({
