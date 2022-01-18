@@ -5,7 +5,7 @@ const Button = (props) => {
   return (
     <button 
     type={props.type}>
-      Click
+      {props.text}
       </button>
   )
 }
@@ -75,7 +75,7 @@ const Form = (props) => {
       textareaValue,selectValue,inputValue
     });
   }
-  
+
   return(
     <>
      <div className="container">
@@ -85,7 +85,7 @@ const Form = (props) => {
             <Input inputValue={inputValue} setInputValue={setInputValue}/>
             <Textarea textareaValue={textareaValue} setTextValue={setTextValue}/>
             <Select selectValue={selectValue} setSelectValue={setSelectValue}/>
-            <Button type="submit" />
+            <Button type="submit" text='Click!' />
           </div>
         </form>
       </div>
