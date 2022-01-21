@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {User, UserProps, Posts, UserPosts} from '../../type';
+import {User, Post} from '../../type';
 
-const UserList = ({users}: UserProps, {posts}:UserPosts) => {
+interface UserListProps {
+  users: User[];
+  posts: Post[];
+}
+
+const UserList = ({users, posts}: UserListProps) => {
   return(
     <>
     <div style={{ display: 'flex' }}>
@@ -29,7 +34,7 @@ const UserList = ({users}: UserProps, {posts}:UserPosts) => {
 
 const ListHooks = () => {
   const [users, setUsers] = useState<User[]>([]);
-  const [posts, setPosts] = useState<Posts[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -44,7 +49,6 @@ const ListHooks = () => {
       .then((posts) => setPosts(posts));
   };
 
-
   return (
     <>
     <h2>react hooks</h2>
@@ -52,6 +56,5 @@ const ListHooks = () => {
     </>
   );
 };
-
 
 export default ListHooks;

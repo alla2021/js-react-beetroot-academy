@@ -5,16 +5,9 @@ export interface User {
     email: string;
 }
 
-export interface Posts {
+export interface Post {
   id: string;
   title: string;
 }
 
-export interface UserProps{
-  users: User[];
-}
-
-export interface UserPosts{
-  posts: Posts[];
-}
 
