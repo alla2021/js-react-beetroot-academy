@@ -38,11 +38,12 @@ const ListHooks = () => {
       .catch((error) => console.log('error :>> ', error));
   }, []);
 
-  const getPostsByUserId = (id) => {
+  const getPostsByUserId : React.ChangeEventHandler<HTMLInputElement> = (id) => {
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
       .then((response) => response.json())
       .then((posts) => setPosts(posts));
   };
+
 
   return (
     <>
