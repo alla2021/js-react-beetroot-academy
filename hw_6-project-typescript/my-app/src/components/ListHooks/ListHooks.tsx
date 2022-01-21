@@ -7,7 +7,7 @@ const UserList = ({user}: UserProps, {posts}:UserPosts) => {
     <div style={{ display: 'flex' }}>
         <ul>
           {user.map((user) => (
-            <li key={user.id} onClick={() => click(user.id)}>
+            <li key={user.id} onClick={(event) => handleClick(user.id)}>
               Name: {user.name}
               <br />
               Username: {user.username}
@@ -27,11 +27,9 @@ const UserList = ({user}: UserProps, {posts}:UserPosts) => {
   )
 }
 
-
-const ListHooks = ({ title }) => {
+const ListHooks = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [posts, setPosts] = useState<Posts[]>([]);
-  // const [clicked, setClickedBtn] = useState<Click>('');
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -49,8 +47,7 @@ const ListHooks = ({ title }) => {
   return (
     <>
     <h2>react hooks</h2>
-      <h1>{title}</h1>
-      <UserList users={users} posts={posts} click={getPostsByUserId}/>
+      <UserList users={users} posts={posts} handleClick={getPostsByUserId}/>
     </>
   );
 };
