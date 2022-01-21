@@ -18,3 +18,6 @@ export interface UserPosts{
   posts: Posts[];
 }
 
+// export interface UserClick{
+//   posts: Click[];
+// }

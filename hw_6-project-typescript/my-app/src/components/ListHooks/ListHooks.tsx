@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {User, UserProps, Posts, UserPosts} from '../../type';
 
-const UserList = ({users}: UserProps, {posts}:UserPosts) => {
+const UserList = ({user}: UserProps, {posts}:UserPosts) => {
   return(
     <>
     <div style={{ display: 'flex' }}>
         <ul>
-          {users.map((user) => (
+          {user.map((user) => (
             <li key={user.id} onClick={() => click(user.id)}>
               Name: {user.name}
               <br />
@@ -27,9 +27,11 @@ const UserList = ({users}: UserProps, {posts}:UserPosts) => {
   )
 }
 
-const ListHooks = ({ title }) => {
+
+const ListHooks = ({ title } => {
   const [users, setUsers] = useState<User[]>([]);
   const [posts, setPosts] = useState<Posts[]>([]);
+  // const [clicked, setClickedBtn] = useState<Click>('');
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -52,5 +54,6 @@ const ListHooks = ({ title }) => {
     </>
   );
 };
+
 
 export default ListHooks;
