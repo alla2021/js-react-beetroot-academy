@@ -38,7 +38,7 @@ const ListHooks = () => {
       .catch((error) => console.log('error :>> ', error));
   }, []);
 
-  const getPostsByUserId : React.ChangeEventHandler<HTMLInputElement> = (id) => {
+  const getPostsByUserId : React.MouseEvent<HTMLButtonElement> = (id) => {
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
       .then((response) => response.json())
       .then((posts) => setPosts(posts));
