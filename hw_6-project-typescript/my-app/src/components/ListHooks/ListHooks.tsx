@@ -28,7 +28,7 @@ const UserList = ({user}: UserProps, {posts}:UserPosts) => {
 }
 
 
-const ListHooks = ({ title } => {
+const ListHooks = ({ title }) => {
   const [users, setUsers] = useState<User[]>([]);
   const [posts, setPosts] = useState<Posts[]>([]);
   // const [clicked, setClickedBtn] = useState<Click>('');
