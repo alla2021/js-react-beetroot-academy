@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {User, UserProps, Posts, UserPosts} from '../../type';
 
-const UserList = ({user}: UserProps, {posts}:UserPosts) => {
+const UserList = ({users}: UserProps, {posts}:UserPosts) => {
   return(
     <>
     <div style={{ display: 'flex' }}>
         <ul>
-          {user.map((user) => (
+          {users.map((user) => (
             <li key={user.id} onClick={(event) => handleClick(user.id)}>
               Name: {user.name}
               <br />
