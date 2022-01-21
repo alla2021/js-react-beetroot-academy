@@ -24,4 +24,14 @@ function createList(arr) {
 }
 map(arr, createList);
 
+function f() {
+  console.log(this)
+}
+new f()
 
+const obj = {
+  name: "Alla",
+  sayHello: `Hello ${this.name}`
+}
+
+console.log(obj.sayHello)
