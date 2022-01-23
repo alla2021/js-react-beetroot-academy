@@ -5,7 +5,7 @@ import "./listhooks.scss";
 interface UserListProps {
   users: User[];
   posts: Post[];
-  handelClick: (any) => void;
+  handelClick: (click:any) => void;
 }
 
 const UserList = ({ users, posts, handelClick }: UserListProps) => {
@@ -41,7 +41,7 @@ const ListHooks = () => {
       .catch((error) => console.log("error :>> ", error));
   }, []);
 
-  const getPostsByUserId = (id) => {
+  const getPostsByUserId = (id:'string') => {
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
       .then((response) => response.json())
       .then((posts) => setPosts(posts));
