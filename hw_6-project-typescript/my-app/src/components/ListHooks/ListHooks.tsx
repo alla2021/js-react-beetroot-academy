@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import { isConstructorDeclaration } from 'typescript';
 import {User, Post} from '../../type';
 
 interface UserListProps {
   users: User[];
   posts: Post[];
+  handelClick: (any) => void;
 }
 
-const UserList = ({users, posts}: UserListProps) => {
+const UserList = ({users, posts, handelClick}: UserListProps) => {
   return(
     <>
     <div style={{ display: 'flex' }}>
         <ul>
           {users.map((user) => (
-            <li key={user.id} onClick={(event) => handleClick(user.id)}>
+            <li key={user.id}>
               Name: {user.name}
               <br />
               Username: {user.username}
               <br />
               Email: {user.email}
               <br />
+              <button onClick={() => handelClick(user.id)}>Click</button>
             </li>
           ))}
         </ul>
@@ -43,7 +46,11 @@ const ListHooks = () => {
       .catch((error) => console.log('error :>> ', error));
   }, []);
 
-  const getPostsByUserId : React.MouseEvent<HTMLButtonElement> = (id) => {
+  // const handelClick = (event: React.MouseEvent<HTMLElement>)  => {
+  //   console.log('sssss')
+  // }
+
+  const getPostsByUserId = (id) => {
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
       .then((response) => response.json())
       .then((posts) => setPosts(posts));
@@ -52,7 +59,7 @@ const ListHooks = () => {
   return (
     <>
     <h2>react hooks</h2>
-      <UserList users={users} posts={posts} handleClick={getPostsByUserId}/>
+      <UserList users={users} posts={posts} handelClick={getPostsByUserId}/>
     </>
   );
 };

@@ -7,13 +7,14 @@ const UserList = ({ users, click, posts }) => {
     <div style={{ display: 'flex' }}>
         <ul>
           {users.map((user) => (
-            <li key={user.id} onClick={() => click(user.id)}>
+            <li key={user.id}>
               Name: {user.name}
               <br />
               Username: {user.username}
               <br />
               Email: {user.email}
               <br />
+              <button onClick={() => click(user.id)}>Click</button>
             </li>
           ))}
         </ul>
