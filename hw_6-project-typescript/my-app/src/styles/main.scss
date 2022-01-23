@@ -12,7 +12,16 @@ ul, li {
   list-style-type: none;
 }
 
-.container {
-  margin: 0 15px;
-  max-width: 1400px;
+.users-app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+

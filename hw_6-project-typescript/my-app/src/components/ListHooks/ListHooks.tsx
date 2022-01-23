@@ -11,13 +11,14 @@ interface UserListProps {
 const UserList = ({ users, posts, handelClick }: UserListProps) => {
   return (
     <>
+    <div className="wrapper">
         <ul className="user__list" >
           {users.map((user) => (
             <li key={user.id} className="user__item">
-                Name: {user.name}
-                Username: {user.username}
-                Email: {user.email}
-              <button onClick={() => handelClick(user.id)}>Click</button>
+                  Name: {user.name}<br/>
+                  Username: {user.username}<br/>
+                  Email: {user.email}
+              <button key={user.id} onClick={() => handelClick(user.id)}>Click</button>
             </li>
           ))}
         </ul>
@@ -25,7 +26,8 @@ const UserList = ({ users, posts, handelClick }: UserListProps) => {
           {posts.map((post) => (
             <li key={post.id} className="post__item">Title:{post.title}</li>
           ))}
-          </ul>
+        </ul>
+      </div>
     </>
   );
 };
