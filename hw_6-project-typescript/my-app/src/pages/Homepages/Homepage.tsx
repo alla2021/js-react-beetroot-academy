@@ -1,5 +1,5 @@
 import React from "react";
-import ListHooks from "../../components/ListHooks/ListHooks";
+import App from "../../App";
 // import Search from '../../components/Search/Search';
 
 function Homepage() {
@@ -8,7 +8,7 @@ function Homepage() {
       <main>
         <section className="users-app">
           <div className="container">
-            <ListHooks />
+            <App />
           </div>
         </section>
       </main>
