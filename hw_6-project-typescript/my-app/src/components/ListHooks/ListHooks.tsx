@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { User, Post } from "../../type";
+import Search from "../Search/Search";
 import "./listhooks.scss";
 
 interface UserListProps {
@@ -24,7 +25,7 @@ const UserList = ({ users, posts, handelClick }: UserListProps) => {
         </ul>
         <ul className="post__list">
           {posts.map((post) => (
-            <li key={post.id} className="post__item">Title:{post.title}</li>
+            <li key={post.id} className="post__item"><span  className="post__title">Title:</span>{post.title}</li>
           ))}
         </ul>
       </div>
@@ -35,6 +36,7 @@ const UserList = ({ users, posts, handelClick }: UserListProps) => {
 const ListHooks = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [posts, setPosts] = useState<Post[]>([]);
+  const [inputValue, setValue] = useState('');
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -51,6 +53,7 @@ const ListHooks = () => {
 
   return (
     <>
+      <Search value={inputValue} checkChange={(value) => setValue(value)} />
       <UserList users={users} posts={posts} handelClick={getPostsByUserId} />
     </>
   );
