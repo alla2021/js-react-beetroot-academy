@@ -9,7 +9,7 @@ interface UserListProps {
   handelClick: (click: any) => void;
 }
 
-const UserList = ({ users, posts, handelClick }: UserListProps) => {
+const UserList = ({ users, posts, handelClick}: UserListProps) => {
   return (
     <>
       <div className="wrapper">
