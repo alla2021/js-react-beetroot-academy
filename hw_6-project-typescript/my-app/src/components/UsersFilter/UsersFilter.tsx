@@ -1,4 +1,4 @@
-import React from 'React';
+import React from "react";
 import { User } from "../../type";
 import UserDetails from "../UserDatails/UserDetails";
 
@@ -16,7 +16,7 @@ function UserFilter({ users, inputValue, handelClick }: UserListProps) {
           user.name.toLowerCase().includes(inputValue.toLowerCase().trim())
         )
         .map((user) => (
-          <UserDetails users={users} handelClick={handelClick}/>
+          <UserDetails users={users} handelClick={handelClick} key={user.id}/>
         ))}
     </>
   );

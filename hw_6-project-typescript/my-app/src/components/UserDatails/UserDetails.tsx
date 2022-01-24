@@ -1,5 +1,6 @@
 import React from "react";
 import { User } from "../../type";
+import './userdetails.scss';
 
 interface UserProps {
   users: User[];
@@ -12,9 +13,7 @@ const UserDetails = ({ users, handelClick }: UserProps) => {
       {users.map((user) => (
         <li key={user.id} className="user__item">
           Name: {user.name}
-          <br />
           Username: {user.username}
-          <br />
           Email: {user.email}
           <button key={user.id} onClick={() => handelClick(user.id)}>
             Click

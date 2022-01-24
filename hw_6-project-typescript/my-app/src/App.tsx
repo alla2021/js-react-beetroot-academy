@@ -23,8 +23,10 @@ const App = () => {
 
   return (
     <>
-      <Search value={inputValue} checkChange={(value) => setValue(value)} />
-      <UserList users={users} posts={posts} handelClick={getPostsByUserId} />
+      <div className="app">
+        <Search value={inputValue} checkChange={(value) => setValue(value)} />
+        <UserList users={users} inputValue={inputValue} posts={posts} handelClick={getPostsByUserId} />
+      </div>
     </>
   );
 };
