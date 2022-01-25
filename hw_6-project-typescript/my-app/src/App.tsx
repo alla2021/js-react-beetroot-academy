@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { User, Post } from "./type";
 import Search from "../src/components/Search/Search";
 import UserList from "../src/components/UserList/UserList";
+import UserFilter from "./components/UsersFilter/UsersFilter";
 
 const App = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -21,10 +22,15 @@ const App = () => {
       .then((posts) => setPosts(posts));
   };
 
+  const handelSearch: React.ChangeEventHandler<HTMLInputElement> = (text) => {
+    return setValue(text.target.value.toLowerCase());
+  };
+
   return (
     <>
       <div className="app">
         <Search value={inputValue} checkChange={(value) => setValue(value)} />
+        <UserFilter users={users} inputValue={inputValue} handelClick={handelSearch}/>
         <UserList users={users} inputValue={inputValue} posts={posts} handelClick={getPostsByUserId} />
       </div>
     </>

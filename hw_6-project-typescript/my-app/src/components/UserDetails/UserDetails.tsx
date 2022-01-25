@@ -9,18 +9,18 @@ interface UserProps {
 
 const UserDetails = ({ users, handelClick }: UserProps) => {
   return (
-    <ul className="user__list">
+    <div className="users">
       {users.map((user) => (
-        <li key={user.id} className="user__item">
-          Name: {user.name}
-          Username: {user.username}
-          Email: {user.email}
-          <button key={user.id} onClick={() => handelClick(user.id)}>
+        <div key={user.id} className="users__item">
+          <span>Name: {user.name}</span>
+          <span>Username: {user.username}</span>
+          <span>Email: {user.email}</span>
+          <button className="btn" key={user.id} onClick={() => handelClick(user.id)}>
             Click
           </button>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "../../type";
-import UserDetails from "../UserDatails/UserDetails";
+import UserDetails from "../UserDetails/UserDetails";
 
 interface UserListProps {
   users: User[];

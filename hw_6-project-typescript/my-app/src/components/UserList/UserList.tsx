@@ -1,8 +1,8 @@
 import React from "react";
 import { User, Post } from "../../type";
-import UserDetails from "../UserDatails/UserDetails";
-import "./userList.scss";
-import UserFilter from "../UsersFilter/UsersFilter"
+import UserDetails from "../UserDetails/UserDetails";
+import './userList.scss';
+// import UserFilter from "../UsersFilter/UsersFilter"
 
 interface UserListProps {
   users: User[];
@@ -14,13 +14,13 @@ interface UserListProps {
 const UserList = ({ users, posts, handelClick, inputValue}: UserListProps) => {
   return (
     <>
-      <div className="wrapper">
-        {/* <UserDetails users={users} handelClick={handelClick} /> */}
-        <UserFilter users={users} inputValue={inputValue} handelClick={handelClick}/>
-        <ul className="post__list">
+      <div className='wrapper'>
+        <UserDetails users={users} handelClick={handelClick} />
+      
+        <ul className="posts">
           {posts.map((post) => (
-            <li key={post.id} className="post__item">
-              <span className="post__title">Title:</span>
+            <li key={post.id} className="posts__item">
+              <span className="posts__title">Title:</span>
               {post.title}
             </li>
           ))}

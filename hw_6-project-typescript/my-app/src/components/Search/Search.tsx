@@ -1,5 +1,5 @@
 import React from "react";
-import './search.scss'
+import styles from './search.module.scss'
 
 interface SearchProps {
   value: string;
@@ -13,14 +13,14 @@ function Search({ value, checkChange }: SearchProps) {
   }
 
   return (
-    <div className="search">
-      <label htmlFor="search">Enter a name:</label>
+    <div className={styles.search}>
+      <label className={styles.search__label} htmlFor="search">Enter a name:</label>
       <input
         type="text"
         value={value}
         name="search"
         onInput={(e) => handleChange(e)}
-        className="search-by-name"
+        className={styles.input}
         placeholder="Name"
       />
     </div>
