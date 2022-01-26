@@ -22,8 +22,8 @@ const App = () => {
       .then((posts) => setPosts(posts));
   };
 
-  const handelSearch: React.ChangeEventHandler<HTMLInputElement> = (text) => {
-    return setValue(text.target.value.toLowerCase());
+  const handelSearch: React.ChangeEventHandler<HTMLInputElement> = (item) => {
+    return setValue(item.target.value.toLowerCase());
   };
 
   return (

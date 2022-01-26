@@ -1,6 +1,6 @@
 import React from "react";
 import { User, Post } from "../../type";
-import UserDetails from "../UserDetails/UserDetails";
+// import UserDetails from "../UserDetails/UserDetails";
 import './userList.scss';
 // import UserFilter from "../UsersFilter/UsersFilter"
 
@@ -11,11 +11,10 @@ interface UserListProps {
   inputValue: string;
 }
 
-const UserList = ({ users, posts, handelClick, inputValue}: UserListProps) => {
+const UserList = ({ users, posts, handelClick}: UserListProps) => {
   return (
     <>
       <div className='wrapper'>
-          {/* <UserList users={users} inputValue={inputValue} posts={posts} handelClick={getPostsByUserId} /> */}
       
         <ul className="posts">
           {posts.map((post) => (
