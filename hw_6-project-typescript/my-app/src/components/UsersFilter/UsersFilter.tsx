@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "../../type";
-import UserDetails from "../UserDetails/UserDetails";
+// import UserDetails from "../UserDetails/UserDetails";
 
 interface UserListProps {
   users: User[];
@@ -16,8 +16,16 @@ function UserFilter({ users, inputValue, handelClick }: UserListProps) {
           user.name.toLowerCase().includes(inputValue.toLowerCase().trim())
         )
         .map((user) => (
-          <UserDetails users={users} handelClick={handelClick} key={user.id}/>
-        ))}
+          <div key={user.id} className="users__item 4">
+          <span>Name: {user.name}</span>
+          <span>Username: {user.username}</span>
+          <span>Email: {user.email}</span>
+          <button className="btn" key={user.id} onClick={() => handelClick(user.id)}>
+            Click
+          </button>
+        </div>
+        ))
+        }
     </>
   );
 }

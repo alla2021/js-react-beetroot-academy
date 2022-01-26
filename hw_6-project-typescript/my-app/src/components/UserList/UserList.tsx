@@ -15,7 +15,7 @@ const UserList = ({ users, posts, handelClick, inputValue}: UserListProps) => {
   return (
     <>
       <div className='wrapper'>
-        <UserDetails users={users} handelClick={handelClick} />
+          {/* <UserList users={users} inputValue={inputValue} posts={posts} handelClick={getPostsByUserId} /> */}
       
         <ul className="posts">
           {posts.map((post) => (
