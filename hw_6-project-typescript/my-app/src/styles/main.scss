@@ -12,10 +12,15 @@ ul, li {
   list-style-type: none;
 }
 
-.users-app {
+.block {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  flex-direction: column;
+}
+
+.users, .posts {
+  width: 50%;
 }
 
 .container {

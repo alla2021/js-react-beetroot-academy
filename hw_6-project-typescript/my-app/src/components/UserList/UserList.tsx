@@ -1,21 +1,15 @@
 import React from "react";
 import { User, Post } from "../../type";
-// import UserDetails from "../UserDetails/UserDetails";
 import './userList.scss';
-// import UserFilter from "../UsersFilter/UsersFilter"
 
 interface UserListProps {
   users: User[];
   posts: Post[];
-  handelClick: (click: any) => void;
-  inputValue: string;
 }
 
-const UserList = ({ users, posts, handelClick}: UserListProps) => {
+const UserList = ({ posts}: UserListProps) => {
   return (
     <>
-      <div className='wrapper'>
-      
         <ul className="posts">
           {posts.map((post) => (
             <li key={post.id} className="posts__item">
@@ -24,9 +18,9 @@ const UserList = ({ users, posts, handelClick}: UserListProps) => {
             </li>
           ))}
         </ul>
-      </div>
     </>
   );
 };
+
 
 export default UserList;

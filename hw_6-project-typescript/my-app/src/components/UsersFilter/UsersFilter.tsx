@@ -16,7 +16,7 @@ function UserFilter({ users, inputValue, handelClick }: UserListProps) {
           user.name.includes(inputValue.toLowerCase().trim())
         )
         .map((user) => (
-          <div key={user.id} className="users__item 4">
+          <div key={user.id} className="users">
           <span>Name: {user.name}</span>
           <span>Username: {user.username}</span>
           <span>Email: {user.email}</span>

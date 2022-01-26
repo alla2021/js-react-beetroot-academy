@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { User, Post } from "./type";
+import { User, Post} from "./type";
 import Search from "../src/components/Search/Search";
-import UserList from "../src/components/UserList/UserList";
+import UserList from "./components/UserList/UserList";
 import UserFilter from "./components/UsersFilter/UsersFilter";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => setUsers(data))
-      .catch((error) => console.log("error :>> ", error));
+      .catch((error) => console.log("error -->> ", error));
   }, []);
 
   const getPostsByUserId = (id:'string') => {
@@ -22,16 +22,14 @@ const App = () => {
       .then((posts) => setPosts(posts));
   };
 
-  const handelSearch: React.ChangeEventHandler<HTMLInputElement> = (item) => {
-    return setValue(item.target.value.toLowerCase());
-  };
-
   return (
     <>
       <div className="app">
         <Search value={inputValue} checkChange={(value) => setValue(value)} />
-        <UserFilter users={users} inputValue={inputValue} handelClick={handelSearch}/>
-        <UserList users={users} inputValue={inputValue} posts={posts} handelClick={getPostsByUserId} />
+        <div className="block">
+        <UserFilter users={users} inputValue={inputValue} handelClick={getPostsByUserId}/>
+        <UserList users={users} posts={posts} />
+        </div>
       </div>
     </>
   );
