@@ -11,12 +11,13 @@ interface UserListProps {
 function UserFilter({ users, inputValue, handelClick }: UserListProps) {
   return (
     <>
+    <div className="users">
       {users
         .filter((user) =>
           user.name.includes(inputValue.toLowerCase().trim())
         )
         .map((user) => (
-          <div key={user.id} className="users">
+          <div key={user.id} className="users__item">
           <span>Name: {user.name}</span>
           <span>Username: {user.username}</span>
           <span>Email: {user.email}</span>
@@ -26,6 +27,7 @@ function UserFilter({ users, inputValue, handelClick }: UserListProps) {
         </div>
         ))
         }
+      </div>
     </>
   );
 }

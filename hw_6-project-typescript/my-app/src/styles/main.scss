@@ -16,11 +16,17 @@ ul, li {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: space-between;
 }
 
 .users, .posts {
   width: 50%;
+}
+
+.users__item{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .container {
