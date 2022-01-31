@@ -21,7 +21,7 @@ function Search({ value, checkChange }: SearchProps) {
         name="search"
         onInput={(e) => handleChange(e)}
         className={styles.input}
-        placeholder="Name"
+        placeholder="Name..."
       />
     </div>
   );

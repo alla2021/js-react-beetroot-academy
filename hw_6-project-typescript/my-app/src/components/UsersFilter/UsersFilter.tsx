@@ -1,14 +1,18 @@
 import React from "react";
 import { User } from "../../type";
-// import UserDetails from "../UserDetails/UserDetails";
 
 interface UserListProps {
   users: User[];
   inputValue: string;
+  setValue: string;
   handelClick: (click: any) => void;
 }
 
-function UserFilter({ users, inputValue, handelClick }: UserListProps) {
+function UserFilter({ users }: UserListProps) {
+  const [inputValue, setValue] = useState('');
+  const handelSearch: React.ChangeEventHandler<HTMLInputElement> = (text) => {
+    return setValue(text.target.value.toLowerCase());
+  };
   return (
     <>
       {users
@@ -16,18 +20,16 @@ function UserFilter({ users, inputValue, handelClick }: UserListProps) {
           user.name.toLowerCase().includes(inputValue.toLowerCase().trim())
         )
         .map((user) => (
-          <div key={user.id} className="users__item 4">
-          <span>Name: {user.name}</span>
-          <span>Username: {user.username}</span>
-          <span>Email: {user.email}</span>
-          <button className="btn" key={user.id} onClick={() => handelClick(user.id)}>
-            Click
-          </button>
-        </div>
-        ))
-        }
+          <li key={user.id} className="user__item filter">
+              <span>Name: {user.name}</span>
+              <span>Name: {user.username}</span>
+              <span>Name: {user.email}</span>
+              <button onClick={() => handelClick(user.id)}>Click</button>
+            </li>
+        ))}
     </>
   );
 }
 
 export default UserFilter;
+

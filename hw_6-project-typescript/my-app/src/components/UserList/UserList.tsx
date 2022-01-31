@@ -1,8 +1,7 @@
 import React from "react";
 import { User, Post } from "../../type";
-import UserDetails from "../UserDetails/UserDetails";
-import './userList.scss';
-// import UserFilter from "../UsersFilter/UsersFilter"
+import "./userList.scss";
+import UserFilter from '../UsersFilter/UsersFilter'
 
 interface UserListProps {
   users: User[];
@@ -11,21 +10,28 @@ interface UserListProps {
   inputValue: string;
 }
 
-const UserList = ({ users, posts, handelClick, inputValue}: UserListProps) => {
+const UserList = ({ users, posts, handelClick, inputValue }: UserListProps) => {
   return (
     <>
-      <div className='wrapper'>
-          {/* <UserList users={users} inputValue={inputValue} posts={posts} handelClick={getPostsByUserId} /> */}
-      
-        <ul className="posts">
-          {posts.map((post) => (
-            <li key={post.id} className="posts__item">
-              <span className="posts__title">Title:</span>
-              {post.title}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* <ul className="user">
+        {users.map((user) => (
+         <li key={user.id} className="users__item">
+         <span>Name: {user.name}</span>
+         <span>Name: {user.username}</span>
+         <span>Name: {user.email}</span>
+         <button onClick={() => handelClick(user.id)}>Click</button>
+       </li>
+        ))}
+      </ul> */}
+       <UserFilter users={users} inputValue={inputValue} handelClick={handelSearch}/>
+      <ul className="posts">
+        {posts.map((post) => (
+          <li key={post.id} className="posts__item">
+            <span className="posts__title">Title:</span>
+            {post.title}
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
